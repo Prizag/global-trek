@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+"use client"
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
-const Login = () => {
+export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -23,7 +27,7 @@ const Login = () => {
       const response = await mockLoginApi(email, password);
       if (response.success) {
         alert("Login successful! Redirecting to dashboard...");
-        // Redirect to dashboard or home page
+        router.push("/"); 
       } else {
         setError("Invalid email or password.");
       }
@@ -42,7 +46,7 @@ const Login = () => {
         } else {
           resolve({ success: false });
         }
-      }, 1000); // Simulate network delay
+      }, 1000); 
     });
   };
 
@@ -92,13 +96,11 @@ const Login = () => {
         </form>
         <p className="text-center text-gray-600 mt-6">
           Don't have an account?{" "}
-          <a href="/signup" className="text-blue-500 hover:underline">
+          <Link href="/signup" className="text-blue-500 hover:underline">
             Sign up
-          </a>
+          </Link>
         </p>
       </div>
     </div>
   );
-};
-
-export default Login;
+}
