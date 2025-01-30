@@ -1,24 +1,7 @@
 "use client"
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
 
 export default function Page() {
-  const router = useRouter();
-
-  // Simulate authentication check
-
-  useEffect(() => {
-    const isAuthenticated = localStorage.getItem("isAuthenticated");
-    if (!isAuthenticated) {
-      router.push("/"); 
-    }
-  }, [router]);
-
-  const handleLogout = () => {
-    localStorage.removeItem("isAuthenticated");
-    router.push("/"); 
-  };
+  
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
