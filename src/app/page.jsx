@@ -10,7 +10,7 @@ export default function Page() {
           Dashboard
         </h1>
         <p className="text-center text-gray-600 mb-6">
-          Welcome to your hotel booking dashboard!
+          Welcome to your hotel booking !
         </p>
         
       </div>
