@@ -14,7 +14,6 @@ export default function Login() {
     e.preventDefault();
     setError("");
 
-    // Basic validation
     if (!email || !password) {
       setError("Please fill in all fields.");
       return;

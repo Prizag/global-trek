@@ -23,13 +23,12 @@ export default function Signup() {
 
     setIsLoading(true);
 
-    // Mock API call for user registration
     try {
       const response = await mockSignupApi(name, email, password);
       if (response.success) {
         alert("Signup successful! Redirecting to dashboard...");
-        localStorage.setItem("isAuthenticated", "true"); // Simulate authentication
-        router.push("/dashboard"); // Redirect to dashboard
+        localStorage.setItem("isAuthenticated", "true"); 
+        router.push("/dashboard");
       } else {
         setError("Signup failed. Please try again.");
       }
@@ -43,8 +42,8 @@ export default function Signup() {
   const mockSignupApi = (name, email, password) => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve({ success: true }); // Simulate successful signup
-      }, 1000); // Simulate network delay
+        resolve({ success: true }); 
+      }, 1000); 
     });
   };
 
